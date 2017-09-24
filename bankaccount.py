@@ -3,22 +3,28 @@ Accepting deposits
 Allowing withdraw
 Showing the balance
 Showing the details of the account.
-Check a pin"""
+Check a pin
+allow to creat a new account
+type of account
+generate a account number and pin"""
 
-pin_olga = 1245
-pin_tomak = 1369
-pin_bartek = 7531
+from random import randint
 
 
-class BankAccount(object):
-  balance = 0
-  def __init__(self, name):
+class BankAccount():
+
+  def __init__(self, name, balance, account_type, account_number, pin):
     self.name = name
+    self.balance = 0
+    self.account_typ = account_type
+    self.account_number = 85102010010000000000000000 + randint(1, 9999999999999999)
+    self.pin = randint(0000,9999)
+
   def __repr__(self):
     return "%s's account balance: $%.2f" % (self.name, self.balance)
   def show_balance(self):
     print ("%s's account balance: $%.2f" % (self.name, self.balance))
-  def deposit(self, amount): 
+  def deposit(self, amount):
     if amount <= 0:
       print ("Error. You can not deposit zero or less dollars")
     else:
@@ -35,7 +41,7 @@ class BankAccount(object):
 
 def run_bank_app(cilent):
   my_account = BankAccount(cilent)
-  
+
   exit = False
   while exit == False:
     choice_of_operation = input("Enter operation: \n1. Show Balance\n2. Deposit money\n3. Withdraw money\n0. Exit\n")
@@ -83,4 +89,3 @@ elif cilent == "bartek":
     print("Wrong PIN")
 else:
   print ("Wrong cilent")
-
