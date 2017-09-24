@@ -12,10 +12,15 @@ from random import randint
 
 class BankAccount():
 
-  def __init__(self, clinet, balance):
+  def __init__(self, client, balance):
     self.client = client
-    self.balance = 0
+    self.balance = balance
     self.pin = randint(0000,9999)
+    self.name = client.name
+    self.surname = client.surname
+    self.account_typ = client.account_typ
+    self.account_number = client.account_number
+
 
   def __repr__(self):
     return "%s's account balance: $%.2f" % (self.name, self.balance)
@@ -42,6 +47,8 @@ class Client():
     self.surname = surname
     self.account_typ = account_typ
     self.account_number = 85102010010000000000000000 + randint(1, 9999999999999999)
+  def __repr__(self):
+    return "%s's account number: $%.2f" % (self.name, self.account_number)
 
 
 def run_bank_app(cilent):
