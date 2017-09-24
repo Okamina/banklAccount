@@ -10,14 +10,11 @@ generate a account number and pin"""
 
 from random import randint
 
-
 class BankAccount():
 
-  def __init__(self, name, balance, account_type):
-    self.name = name
+  def __init__(self, clinet, balance):
+    self.client = client
     self.balance = 0
-    self.account_typ = account_type
-    self.account_number = 85102010010000000000000000 + randint(1, 9999999999999999)
     self.pin = randint(0000,9999)
 
   def __repr__(self):
@@ -38,6 +35,14 @@ class BankAccount():
       print ("Payout amount: $%.2f" % (amount))
       self.balance -= amount
       self.show_balance()
+
+class Client():
+  def __init__(self, name, surname, account_typ):
+    self.name = name
+    self.surname = surname
+    self.account_typ = account_typ
+    self.account_number = 85102010010000000000000000 + randint(1, 9999999999999999)
+
 
 def run_bank_app(cilent):
   my_account = BankAccount(cilent)
