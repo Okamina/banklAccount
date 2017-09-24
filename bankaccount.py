@@ -13,7 +13,7 @@ from random import randint
 
 class BankAccount():
 
-  def __init__(self, name, balance, account_type, account_number, pin):
+  def __init__(self, name, balance, account_type):
     self.name = name
     self.balance = 0
     self.account_typ = account_type
